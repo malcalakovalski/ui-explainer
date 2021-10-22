@@ -51,9 +51,9 @@ claims %>%
   labs(title = "Continuing Unemployment Claims in All Programs",
        x = NULL,
        y = NULL,
-       caption = "**Source:** Department of Labor") +
-  guides(fill = guide_legend(reverse = TRUE,
-                             fill = "#FAFAFA"))
+       caption = "**Source:** Department of Labor<br>") +
+  guides(fill = guide_legend(reverse = TRUE)) +
+  theme(legend.background = element_rect(fill = "#FAFAFA"))
 
 ggsave(
   here::here('figures', 'claims.png'),
@@ -65,3 +65,11 @@ ggsave(
   type = 'cairo',
   device = ragg::agg_png()
 )
+
+
+# Logo --------------------------------------------------------------------
+
+chart_wlogo <- add_logo('figures/claims.png',
+                        'hc',
+                        height_padding = 0.02)
+magick::image_write(chart_wlogo, 'figures/claims_wlogo.png')
