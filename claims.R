@@ -14,7 +14,7 @@ font_add("roboto", regular = "Roboto-Regular.ttf",
 # This tells R what engine to render under (sort of). It's important this is inserted before any graphics rendering.
 showtext_auto()
 # This corrects sizing issues that occur when rendering.
-showtext_opts(dpi = 300)
+showtext_opts(dpi = 72)
 
 ## Theme
 theme_set(theme_brookings(base_family = 'roboto', web = TRUE))
